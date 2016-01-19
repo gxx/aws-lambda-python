@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+lib/
+lib64/
+parts/
+sdist/
+var/
+bin/
+*.egg-info
+.installed.cfg
+*.egg
+
+# Testing
+.coverage
+htmlcov/
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Translations
+*.mo
+*.pot
+
+# PyBuilder
+target/
+
+.idea
+list_image.zip
+
+# Dependencies
+jinja2/
+markupsafe/
+_markerlib/
+setuptools/
+Jinja2-2.8.dist-info/
+MarkupSafe-0.23.dist-info/
+easy_install.py
+pkg_resources/
+setuptools-*.dist-info/
+

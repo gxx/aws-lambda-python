@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>List Images</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            var uploadImage = (function () {
+                var inProgress = false;
+
+                return function () {
+                    if (inProgress) {
+                        return;
+                    }
+
+                    inProgress = true;
+
+                    var formData = new FormData();
+                    var fileData = $('#image-file').prop('files')[0];
+
+                    formData.append('key', parseInt(Math.random() * 1000000));
+                    formData.append('acl', 'public-read');
+                    formData.append('file', fileData);
+
+                    $.ajax({
+                        url: 'https://test-upload.s3.amazonaws.com/',
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function (data) {
+                            window.location.reload();
+                        }
+                    });
+                }
+            })();
+        </script>
+
+        <style type="text/css">
+            .image__container {
+                float: left;
+                width: 30%;
+                margin-left: 2.5%;
+                margin-right: 2.5%;
+                max-width: 400px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav>
+            <input id="image-file" type="file" onchange="uploadImage()" value="Upload Image" />
+        </nav>
+
+        <section>
+            {% for image_url in image_urls %}
+                <div class="image__container">
+                    <img src="{{ image_url }}" />
+                </div>
+            {% endfor %}
+        </section>
+    </body>
+</html>
