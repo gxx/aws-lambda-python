@@ -1,2 +1,3 @@
 .idea
 virtualenv
+.DS_Store
